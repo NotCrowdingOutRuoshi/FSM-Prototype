@@ -34,7 +34,7 @@ public abstract class Controller implements KeyListener, MouseListener, MouseMot
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (_keyCodeToDirection.containsKey(e.getKeyChar())) {
+		if (_keyCodeToDirection.containsKey(e.getKeyCode())) {
 			_isDirectionKeyPressed = true;
 			Direction direction = _keyCodeToDirection.get(e.getKeyCode());
 			_entity.getFiniteStateMachine().setState(new WalkingState(_entity, direction));
@@ -49,7 +49,7 @@ public abstract class Controller implements KeyListener, MouseListener, MouseMot
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (_keyCodeToDirection.containsKey(e.getKeyChar())) {
+		if (_keyCodeToDirection.containsKey(e.getKeyCode())) {
 			_isDirectionKeyPressed = false;
 			_entity.getFiniteStateMachine().setState(new IdleState(_entity));
 		}
