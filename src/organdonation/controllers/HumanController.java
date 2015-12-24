@@ -11,13 +11,15 @@ import organdonation.entities.Human;
 import organdonation.states.WalkingState;
 
 public class HumanController extends Controller {
-	private static Map<Integer, Direction> _keyCodeToDirection = new HashMap<Integer, Direction>() {{ 
-		put(KeyEvent.VK_UP, Direction.UP);
-		put(KeyEvent.VK_DOWN, Direction.DOWN);
-		put(KeyEvent.VK_LEFT, Direction.LEFT);
-		put(KeyEvent.VK_RIGHT, Direction.RIGHT);
-	}};
-	
+	private static Map<Integer, Direction> _keyCodeToDirection = new HashMap<Integer, Direction>() {
+		{
+			put(KeyEvent.VK_UP, Direction.UP);
+			put(KeyEvent.VK_DOWN, Direction.DOWN);
+			put(KeyEvent.VK_LEFT, Direction.LEFT);
+			put(KeyEvent.VK_RIGHT, Direction.RIGHT);
+		}
+	};
+
 	public HumanController(Human entity) {
 		super(entity);
 	}

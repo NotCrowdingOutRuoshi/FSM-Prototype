@@ -5,10 +5,10 @@ import organdonation.entities.Entity;
 
 public class WalkingState extends State {
 	private Direction _direction;
-	
+
 	public WalkingState(Entity entity, Direction direction) {
 		super(entity);
-		
+
 		boolean isDirectionExist = false;
 
 		for (Direction dir : Direction.values()) {
@@ -16,9 +16,9 @@ public class WalkingState extends State {
 				isDirectionExist = true;
 			}
 		}
-		
+
 		assert isDirectionExist;
-		
+
 		_direction = direction;
 	}
 

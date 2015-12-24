@@ -20,6 +20,6 @@ public class IdleState extends State {
 	@Override
 	public void exit() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
