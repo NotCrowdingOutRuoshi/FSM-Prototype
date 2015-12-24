@@ -7,9 +7,9 @@ public class StealState extends State {
 
 	protected StealState(Entity entity, Entity opponent) {
 		super(entity);
-		
+
 		assert opponent != null;
-		
+
 		_opponent = opponent;
 	}
 

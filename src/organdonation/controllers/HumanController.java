@@ -12,39 +12,22 @@ import organdonation.states.AttackState;
 import organdonation.states.IdleState;
 import organdonation.states.WalkingState;
 
+/*
+ * Customizes handlers for Human entity if needed.
+ */
 public class HumanController extends Controller {
-	private static Map<Integer, Direction> _keyCodeToDirection = new HashMap<Integer, Direction>() {
-		{
-			put(KeyEvent.VK_UP, Direction.UP);
-			put(KeyEvent.VK_DOWN, Direction.DOWN);
-			put(KeyEvent.VK_LEFT, Direction.LEFT);
-			put(KeyEvent.VK_RIGHT, Direction.RIGHT);
-		}
-	};
-
 	public HumanController(Human entity) {
 		super(entity);
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (_keyCodeToDirection.containsKey(e.getKeyChar())) {
-			Direction direction = _keyCodeToDirection.get(e.getKeyCode());
-			_entity.getFiniteStateMachine().setState(new WalkingState(_entity, direction));
-			_entity.getFiniteStateMachine().executeState();
-		}
-		
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			_entity.getFiniteStateMachine().setState(new AttackState(_entity));
-			_entity.getFiniteStateMachine().executeState();
-		}
+		super.keyPressed(e);
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (_keyCodeToDirection.containsKey(e.getKeyChar())) {
-			_entity.getFiniteStateMachine().setState(new IdleState(_entity));
-		}
+		super.keyReleased(e);
 	}
 
 	@Override
