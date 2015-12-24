@@ -1,4 +1,4 @@
-package organdonation.controller;
+package organdonation.controllers;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -6,9 +6,9 @@ import java.awt.event.MouseWheelEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-import organdonation.entity.Direction;
-import organdonation.entity.Human;
-import organdonation.state.WalkingState;
+import organdonation.entities.Direction;
+import organdonation.entities.Human;
+import organdonation.states.WalkingState;
 
 public class HumanController extends Controller {
 	private static Map<Integer, Direction> _keyCodeToDirection = new HashMap<Integer, Direction>() {{ 

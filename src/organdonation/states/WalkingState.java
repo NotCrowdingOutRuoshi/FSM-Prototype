@@ -1,7 +1,7 @@
-package organdonation.state;
+package organdonation.states;
 
-import organdonation.entity.Direction;
-import organdonation.entity.Entity;
+import organdonation.entities.Direction;
+import organdonation.entities.Entity;
 
 public class WalkingState extends State {
 	private Direction _direction;

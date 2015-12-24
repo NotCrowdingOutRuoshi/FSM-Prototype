@@ -8,9 +8,9 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-import organdonation.controller.HumanController;
-import organdonation.entity.Human;
-import organdonation.state.IdleState;
+import organdonation.controllers.HumanController;
+import organdonation.entities.Human;
+import organdonation.states.IdleState;
 
 public class UserInterface implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
 	private HumanController _controller;

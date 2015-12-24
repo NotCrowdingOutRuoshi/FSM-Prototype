@@ -1,6 +1,6 @@
-package organdonation.state;
+package organdonation.states;
 
-import organdonation.entity.Entity;
+import organdonation.entities.Entity;
 
 public class AttackState extends State {
 	public AttackState(Entity entity) {

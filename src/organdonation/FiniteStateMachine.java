@@ -1,7 +1,7 @@
 package organdonation;
 
-import organdonation.entity.Entity;
-import organdonation.state.State;
+import organdonation.entities.Entity;
+import organdonation.states.State;
 
 public class FiniteStateMachine {
 	private Entity _entity;

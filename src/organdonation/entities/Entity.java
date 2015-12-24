@@ -1,4 +1,4 @@
-package organdonation.entity;
+package organdonation.entities;
 
 import organdonation.FiniteStateMachine;
 
