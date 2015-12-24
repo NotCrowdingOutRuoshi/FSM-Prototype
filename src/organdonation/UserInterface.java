@@ -16,6 +16,10 @@ public class UserInterface implements KeyListener, MouseListener, MouseMotionLis
 	private HumanController _controller;
 
 	public UserInterface() {
+		/* The character type of this client will be given by server.
+		 * This example assumes that the character type given by server is
+		 * a human, so we new a Human instance as our entity.
+		 */
 		Human human = new Human();
 		human.getFiniteStateMachine().setState(new IdleState(human));
 		human.getFiniteStateMachine().executeState();
