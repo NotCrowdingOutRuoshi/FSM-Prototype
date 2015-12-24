@@ -11,6 +11,6 @@ public abstract class Controller implements KeyListener, MouseListener, MouseMot
 	protected Entity _entity;
 
 	protected Controller(Entity entity) {
-		entity = entity;
+		_entity = entity;
 	}
 }
