@@ -29,7 +29,6 @@ public class WalkingState extends State {
 
 	@Override
 	public void execute() {
-		_entity.setDirection(_direction);
 		_entity.setX(_entity.getX() + _entity.getSpeed());
 	}
 

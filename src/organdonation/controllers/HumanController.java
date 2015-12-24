@@ -8,6 +8,8 @@ import java.util.Map;
 
 import organdonation.entities.Direction;
 import organdonation.entities.Human;
+import organdonation.states.AttackState;
+import organdonation.states.IdleState;
 import organdonation.states.WalkingState;
 
 public class HumanController extends Controller {
@@ -31,12 +33,18 @@ public class HumanController extends Controller {
 			_entity.getFiniteStateMachine().setState(new WalkingState(_entity, direction));
 			_entity.getFiniteStateMachine().executeState();
 		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			_entity.getFiniteStateMachine().setState(new AttackState(_entity));
+			_entity.getFiniteStateMachine().executeState();
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+		if (_keyCodeToDirection.containsKey(e.getKeyChar())) {
+			_entity.getFiniteStateMachine().setState(new IdleState(_entity));
+		}
 	}
 
 	@Override
