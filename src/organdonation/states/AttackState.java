@@ -20,8 +20,7 @@ public class AttackState extends State {
 		// We assumes that the opponent which can be stolen is a Wolf.
 		Entity opponent = new Wolf();
 
-		if (opponent != null) {
-			_entity.getFiniteStateMachine().setState(new StealState(_entity, opponent));
+		if (opponent != null && _entity.getFiniteStateMachine().setState(new StealState(_entity, opponent))) {
 			_entity.getFiniteStateMachine().executeState();
 		}
 	}
@@ -30,5 +29,10 @@ public class AttackState extends State {
 	public void exit() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public StateType getType() {
+		return StateType.ATTACK;
 	}
 }

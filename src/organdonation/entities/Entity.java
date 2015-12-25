@@ -1,8 +1,14 @@
 package organdonation.entities;
 
+import java.util.Map;
+import java.util.HashMap;
+
 import organdonation.FiniteStateMachine;
+import organdonation.states.StateType;
 
 public abstract class Entity {
+	public Map<StateType, StateType> transitionTable;
+	
 	protected int _x;
 	protected int _y;
 	protected int _speed;
@@ -15,6 +21,7 @@ public abstract class Entity {
 		_speed = 0;
 		_direction = Direction.RIGHT;
 		_fs = new FiniteStateMachine(this);
+		transitionTable = new HashMap<StateType, StateType>();
 	}
 
 	public int getX() {
@@ -62,4 +69,6 @@ public abstract class Entity {
 	public FiniteStateMachine getFiniteStateMachine() {
 		return _fs;
 	}
+
+	protected abstract void initTransitionTable();
 }

@@ -22,4 +22,9 @@ public class IdleState extends State {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public StateType getType() {
+		return StateType.IDLE;
+	}
 }

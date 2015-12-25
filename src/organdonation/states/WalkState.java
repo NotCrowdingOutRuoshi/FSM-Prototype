@@ -3,10 +3,10 @@ package organdonation.states;
 import organdonation.entities.Direction;
 import organdonation.entities.Entity;
 
-public class WalkingState extends State {
+public class WalkState extends State {
 	private Direction _direction;
 
-	public WalkingState(Entity entity, Direction direction) {
+	public WalkState(Entity entity, Direction direction) {
 		super(entity);
 
 		boolean isDirectionExist = false;
@@ -35,5 +35,10 @@ public class WalkingState extends State {
 	@Override
 	public void exit() {
 		_entity.setSpeed(0);
+	}
+
+	@Override
+	public StateType getType() {
+		return StateType.WALK;
 	}
 }

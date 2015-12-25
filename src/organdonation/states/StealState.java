@@ -29,4 +29,9 @@ public class StealState extends State {
 
 	}
 
+	@Override
+	public StateType getType() {
+		return StateType.STEAL;
+	}
+
 }

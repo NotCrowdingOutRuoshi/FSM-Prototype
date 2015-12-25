@@ -16,4 +16,6 @@ public abstract class State {
 	public abstract void execute();
 
 	public abstract void exit();
+
+	public abstract StateType getType();
 }

@@ -12,7 +12,7 @@ import organdonation.entities.Direction;
 import organdonation.entities.Entity;
 import organdonation.states.AttackState;
 import organdonation.states.IdleState;
-import organdonation.states.WalkingState;
+import organdonation.states.WalkState;
 
 public abstract class Controller implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
 	protected static Map<Integer, Direction> _keyCodeToDirection = new HashMap<Integer, Direction>() {
@@ -37,12 +37,12 @@ public abstract class Controller implements KeyListener, MouseListener, MouseMot
 		if (_keyCodeToDirection.containsKey(e.getKeyCode())) {
 			_isDirectionKeyPressed = true;
 			Direction direction = _keyCodeToDirection.get(e.getKeyCode());
-			_entity.getFiniteStateMachine().setState(new WalkingState(_entity, direction));
-			_entity.getFiniteStateMachine().executeState();
+			if (_entity.getFiniteStateMachine().setState(new WalkState(_entity, direction))) {
+				_entity.getFiniteStateMachine().executeState();
+			}
 		}
 
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			_entity.getFiniteStateMachine().setState(new AttackState(_entity));
+		if (e.getKeyCode() == KeyEvent.VK_SPACE && _entity.getFiniteStateMachine().setState(new AttackState(_entity))) {
 			_entity.getFiniteStateMachine().executeState();
 		}
 	}
@@ -51,7 +51,9 @@ public abstract class Controller implements KeyListener, MouseListener, MouseMot
 	public void keyReleased(KeyEvent e) {
 		if (_keyCodeToDirection.containsKey(e.getKeyCode())) {
 			_isDirectionKeyPressed = false;
-			_entity.getFiniteStateMachine().setState(new IdleState(_entity));
+			if (_entity.getFiniteStateMachine().setState(new IdleState(_entity))) {
+				_entity.getFiniteStateMachine().executeState();
+			}
 		}
 	}
 }

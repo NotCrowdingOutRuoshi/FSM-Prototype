@@ -10,7 +10,7 @@ import organdonation.entities.Direction;
 import organdonation.entities.Human;
 import organdonation.states.AttackState;
 import organdonation.states.IdleState;
-import organdonation.states.WalkingState;
+import organdonation.states.WalkState;
 
 /*
  * Customizes handlers for Human entity if needed.
