@@ -9,8 +9,8 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
 import organdonation.controllers.HumanController;
-import organdonation.entities.Human;
-import organdonation.states.IdleState;
+import organdonation.entities.sprites.Human;
+import organdonation.states.StateType;
 
 public class UserInterface implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
 	private HumanController _controller;
@@ -22,7 +22,7 @@ public class UserInterface implements KeyListener, MouseListener, MouseMotionLis
 		 * so we new a Human instance as our entity.
 		 */
 		Human human = new Human();
-		human.getFiniteStateMachine().setState(new IdleState(human));
+		human.getFiniteStateMachine().setState(StateType.IDLE);
 		human.getFiniteStateMachine().executeState();
 
 		_controller = new HumanController(human);

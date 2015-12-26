@@ -1,10 +1,10 @@
 package organdonation.states;
 
-import organdonation.entities.Entity;
+import organdonation.entities.sprites.Sprite;
 
 public class IdleState extends State {
-	public IdleState(Entity entity) {
-		super(entity);
+	public IdleState(Sprite sprite) {
+		super(sprite);
 	}
 
 	@Override

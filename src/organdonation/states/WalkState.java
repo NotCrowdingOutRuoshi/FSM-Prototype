@@ -1,25 +1,13 @@
 package organdonation.states;
 
 import organdonation.entities.Direction;
-import organdonation.entities.Entity;
+import organdonation.entities.sprites.Sprite;
 
 public class WalkState extends State {
 	private Direction _direction;
 
-	public WalkState(Entity entity, Direction direction) {
-		super(entity);
-
-		boolean isDirectionExist = false;
-
-		for (Direction dir : Direction.values()) {
-			if (dir == direction) {
-				isDirectionExist = true;
-			}
-		}
-
-		assert isDirectionExist;
-
-		_direction = direction;
+	public WalkState(Sprite sprite) {
+		super(sprite);
 	}
 
 	@Override
@@ -29,7 +17,12 @@ public class WalkState extends State {
 
 	@Override
 	public void execute() {
-		_entity.setX(_entity.getX() + _entity.getSpeed());
+		Direction direction = _entity.getDirection();
+
+		// Judge the direction and performs walk effect. For example:
+		if (direction == Direction.RIGHT) {
+			_entity.setX(_entity.getX() + _entity.getSpeed());
+		}
 	}
 
 	@Override

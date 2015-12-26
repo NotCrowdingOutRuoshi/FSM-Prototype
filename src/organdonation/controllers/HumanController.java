@@ -3,14 +3,8 @@ package organdonation.controllers;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
-import java.util.HashMap;
-import java.util.Map;
 
-import organdonation.entities.Direction;
-import organdonation.entities.Human;
-import organdonation.states.AttackState;
-import organdonation.states.IdleState;
-import organdonation.states.WalkState;
+import organdonation.entities.sprites.Human;
 
 /*
  * Customizes handlers for Human entity if needed.

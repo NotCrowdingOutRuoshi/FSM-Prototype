@@ -1,27 +1,23 @@
-package organdonation.entities;
+package organdonation.entities.sprites;
 
-import java.util.Map;
-import java.util.HashMap;
+import organdonation.entities.Direction;
+import organdonation.entities.fsm.FiniteStateMachine;
 
-import organdonation.FiniteStateMachine;
-import organdonation.states.StateType;
+public abstract class Sprite {
 
-public abstract class Entity {
-	public Map<StateType, StateType> transitionTable;
-	
 	protected int _x;
 	protected int _y;
 	protected int _speed;
 	protected Direction _direction;
 	protected FiniteStateMachine _fs;
 
-	public Entity() {
+	public Sprite() {
 		_x = 0;
 		_y = 0;
 		_speed = 0;
 		_direction = Direction.RIGHT;
-		_fs = new FiniteStateMachine(this);
-		transitionTable = new HashMap<StateType, StateType>();
+		_fs = null;
+		initFiniteStateMachine();
 	}
 
 	public int getX() {
@@ -67,8 +63,9 @@ public abstract class Entity {
 	}
 
 	public FiniteStateMachine getFiniteStateMachine() {
+		assert _fs != null;
 		return _fs;
 	}
 
-	protected abstract void initTransitionTable();
+	protected abstract void initFiniteStateMachine();
 }

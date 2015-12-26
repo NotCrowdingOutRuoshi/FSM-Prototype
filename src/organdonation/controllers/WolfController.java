@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
-import organdonation.entities.Wolf;
+import organdonation.entities.sprites.Wolf;
 
 /*
  * Customizes handlers for Human entity if needed.

@@ -9,10 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import organdonation.entities.Direction;
-import organdonation.entities.Entity;
-import organdonation.states.AttackState;
-import organdonation.states.IdleState;
-import organdonation.states.WalkState;
+import organdonation.entities.sprites.Sprite;
+import organdonation.states.StateType;
 
 public abstract class Controller implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
 	protected static Map<Integer, Direction> _keyCodeToDirection = new HashMap<Integer, Direction>() {
@@ -24,11 +22,11 @@ public abstract class Controller implements KeyListener, MouseListener, MouseMot
 		}
 	};
 
-	protected Entity _entity;
+	protected Sprite _entity;
 	protected boolean _isDirectionKeyPressed = false;
 
-	protected Controller(Entity entity) {
-		_entity = entity;
+	protected Controller(Sprite sprite) {
+		_entity = sprite;
 		_isDirectionKeyPressed = false;
 	}
 
@@ -36,13 +34,13 @@ public abstract class Controller implements KeyListener, MouseListener, MouseMot
 	public void keyPressed(KeyEvent e) {
 		if (_keyCodeToDirection.containsKey(e.getKeyCode())) {
 			_isDirectionKeyPressed = true;
-			Direction direction = _keyCodeToDirection.get(e.getKeyCode());
-			if (_entity.getFiniteStateMachine().setState(new WalkState(_entity, direction))) {
+
+			if (_entity.getFiniteStateMachine().setState(StateType.WALK)) {
 				_entity.getFiniteStateMachine().executeState();
 			}
 		}
 
-		if (e.getKeyCode() == KeyEvent.VK_SPACE && _entity.getFiniteStateMachine().setState(new AttackState(_entity))) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE && _entity.getFiniteStateMachine().setState(StateType.ATTACK)) {
 			_entity.getFiniteStateMachine().executeState();
 		}
 	}
@@ -51,7 +49,7 @@ public abstract class Controller implements KeyListener, MouseListener, MouseMot
 	public void keyReleased(KeyEvent e) {
 		if (_keyCodeToDirection.containsKey(e.getKeyCode())) {
 			_isDirectionKeyPressed = false;
-			if (_entity.getFiniteStateMachine().setState(new IdleState(_entity))) {
+			if (_entity.getFiniteStateMachine().setState(StateType.IDLE)) {
 				_entity.getFiniteStateMachine().executeState();
 			}
 		}
