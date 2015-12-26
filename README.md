@@ -9,4 +9,5 @@ The basic idea of creating a new character with customized actions is
 - Create new character FiniteStateMachine class
 - Create new character State classes for action customization
 - Binds these new State class into new FiniteStateMachine
-- No original code is modified, we just create new classes for extension
+
+No original code is modified, we just **create new classes for extension**
