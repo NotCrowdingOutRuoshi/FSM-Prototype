@@ -6,8 +6,8 @@ This prototype is developed base on the example [here](http://www.ai-junkie.com/
 The core idea of creating a new character with customized actions is:
 - Create new character Sprite class
 - Create new character Controller class (optional)
-- Create new character FiniteStateMachine class
 - Create new character State classes for action customization
-- Binds these new State class into new FiniteStateMachine class
+- New Sprite class initializes the transition table of FiniteStateMachine
+- New Sprite class binds these new State classes into new FiniteStateMachine class
 
 No original code is modified, we just **create new classes for extension**
