@@ -8,6 +8,8 @@ import organdonation.states.State;
 import organdonation.states.StateType;
 
 public class FiniteStateMachine {
+	// Warning: Map cannot has duplicate keys, data structure of _transition
+	// table should be manually implemented instead of using Map.
 	protected Map<StateType, StateType> _transitionTable;
 	protected Map<StateType, State> _stateEntityTranslationTable;
 	protected Sprite _entity;
