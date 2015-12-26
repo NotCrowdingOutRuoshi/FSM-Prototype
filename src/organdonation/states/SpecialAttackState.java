@@ -2,19 +2,22 @@ package organdonation.states;
 
 import organdonation.entities.sprites.Sprite;
 
-public class StealState extends State {
-	public StealState(Sprite sprite) {
+public class SpecialAttackState extends State {
+
+	public SpecialAttackState(Sprite sprite) {
 		super(sprite);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void enter() {
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void execute() {
-		// Steal the _opponent's organ!
+		// Do some special powerful attack!!
 	}
 
 	@Override
@@ -25,7 +28,8 @@ public class StealState extends State {
 
 	@Override
 	public StateType getType() {
-		return StateType.STEAL;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
