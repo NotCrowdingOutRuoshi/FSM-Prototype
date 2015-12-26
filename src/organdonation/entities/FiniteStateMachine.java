@@ -1,4 +1,4 @@
-package organdonation.entities.fsm;
+package organdonation.entities;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,22 +7,50 @@ import organdonation.entities.sprites.Sprite;
 import organdonation.states.State;
 import organdonation.states.StateType;
 
-public abstract class FiniteStateMachine {
+public class FiniteStateMachine {
 	protected Map<StateType, StateType> _transitionTable;
 	protected Map<StateType, State> _stateEntityTranslationTable;
 	protected Sprite _entity;
 	private State _currentState;
 
-	protected abstract void initTransitionTable();
-
-	protected abstract void initStateEntityTranslationTable();
-
-	protected FiniteStateMachine(Sprite owner) {
+	public FiniteStateMachine(Sprite owner) {
 		assert owner != null;
 
 		_entity = owner;
 		_transitionTable = new HashMap<StateType, StateType>();
 		_stateEntityTranslationTable = new HashMap<StateType, State>();
+	}
+
+	public void addTransition(StateType from, StateType to) {
+		assert (!_transitionTable.containsKey(from)
+				|| (_transitionTable.containsKey(from) && _transitionTable.get(from) != to));
+
+		_transitionTable.put(from, to);
+	}
+
+	public void removeTransition(StateType from, StateType to) {
+		_transitionTable.remove(from, to);
+	}
+
+	public void updateTransition(StateType from, StateType originTo, StateType newTo) {
+		assert ((_transitionTable.containsKey(from) && _transitionTable.get(from) == originTo));
+		_transitionTable.put(from, newTo);
+	}
+
+	public void addStateTranslation(StateType type, State state) {
+		assert (!_stateEntityTranslationTable.containsKey(type));
+
+		_stateEntityTranslationTable.put(type, state);
+	}
+
+	public State removeStateTranslation(StateType type) {
+		return _stateEntityTranslationTable.remove(type);
+	}
+
+	public void updateTranslation(StateType type, State newState) {
+		assert (_stateEntityTranslationTable.containsKey(type));
+
+		_stateEntityTranslationTable.put(type, newState);
 	}
 
 	public boolean setState(StateType stateType) {

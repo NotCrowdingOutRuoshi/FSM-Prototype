@@ -1,7 +1,7 @@
 package organdonation.entities.sprites;
 
 import organdonation.entities.Direction;
-import organdonation.entities.fsm.FiniteStateMachine;
+import organdonation.entities.FiniteStateMachine;
 
 public abstract class Sprite {
 
@@ -11,13 +11,19 @@ public abstract class Sprite {
 	protected Direction _direction;
 	protected FiniteStateMachine _fs;
 
+	protected abstract void initTransitionTable();
+
+	protected abstract void initStateEntityTranslationTable();
+
 	public Sprite() {
 		_x = 0;
 		_y = 0;
 		_speed = 0;
 		_direction = Direction.RIGHT;
-		_fs = null;
+		_fs = new FiniteStateMachine(this);
 		initFiniteStateMachine();
+		initTransitionTable();
+		initStateEntityTranslationTable();
 	}
 
 	public int getX() {
